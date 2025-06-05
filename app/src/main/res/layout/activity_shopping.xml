@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="4dp"
+    tools:context=".Shopping">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Happy Shopping!"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="48sp"
+        android:textColor="#623A2C"
+        android:layout_below="@+id/rhode"
+        android:layout_marginTop="2dp"></TextView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/rhode"
+            android:src="@drawable/rhode"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rhode LipGloss"
+        android:textSize="24sp"
+        android:textColor="#623A2C"
+        android:layout_below="@+id/rhode"
+        android:layout_marginTop="8dp"></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: 20.15 USD"
+            android:textSize="24sp"
+            android:textColor="#623A2C"
+            android:layout_marginTop="260dp"></TextView>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="260dp"
+            android:layout_marginLeft="260dp"
+            android:backgroundTint="#623A2C"
+            android:hint="Add to cart"
+            android:textColorHint="@color/white"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/fall_bags"
+            android:src="@drawable/rhode"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rhode LipGloss"
+            android:textSize="24sp"
+            android:textColor="#623A2C"
+            android:layout_below="@+id/fall_bags"
+            android:layout_marginTop="8dp"></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: 20.15 USD"
+            android:textSize="24sp"
+            android:textColor="#623A2C"
+            android:layout_marginTop="260dp"></TextView>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="260dp"
+            android:layout_marginLeft="260dp"
+            android:backgroundTint="#623A2C"
+            android:hint="Add to cart"
+            android:textColorHint="@color/white"/>
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

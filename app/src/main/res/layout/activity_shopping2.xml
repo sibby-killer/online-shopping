@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F9E4D9"
+    android:padding="16dp"
+    tools:context=".Shopping"
+    tools:ignore="ExtraText">
+    //welcome message
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Swipe, Shop, Shine."
+              android:textSize="40sp"
+              android:layout_marginTop="8dp"
+              android:textColor="#623A2C"
+              android:fontFamily="serif"
+              android:textStyle="italic"/>
+      </LinearLayout>
+    //Rhode lipgloss
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+          <ImageView
+              android:id="@+id/rhode"
+              android:layout_width="match_parent"
+              android:layout_height="200dp"
+              android:scaleType="centerCrop"
+              android:src="@drawable/rhode"/>
+        <TextView
+            android:id="@+id/producttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rhode Lipgloss"
+            android:layout_marginTop="216dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"/>
+        <TextView
+            android:id="@+id/productprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: 18.00USD"
+            android:layout_marginTop="248dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"/>
+        <Button
+            android:id="@+id/addtocart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F9E4D9"
+            android:backgroundTint="#623A2C"
+            android:onClick="addtocart"
+            android:text="Add to cart"
+            android:layout_marginTop="248dp"
+            android:layout_marginLeft="224dp"/>
+    </RelativeLayout>
+
+    //Highheels
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/highheels"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/highheels"/>
+        <TextView
+            android:id="@+id/producttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Suede Chocolate Stiletto High Heeled  Shoes "
+            android:layout_marginTop="216dp"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <TextView
+            android:id="@+id/productprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: 50.00USD"
+            android:layout_marginTop="248dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <Button
+            android:id="@+id/addtocart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F9E4D9"
+            android:backgroundTint="#623A2C"
+            android:onClick="addtocart"
+            android:text="Add to cart"
+            android:layout_marginTop="248dp"
+            android:layout_marginLeft="224dp"
+            tools:ignore="DuplicateIds" />
+    </RelativeLayout>
+    //heels
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/heels"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/heels"/>
+        <TextView
+            android:id="@+id/producttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Stiletto High Heeled  Shoes "
+            android:layout_marginTop="216dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <TextView
+            android:id="@+id/productprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: 50.00USD"
+            android:layout_marginTop="248dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <Button
+            android:id="@+id/addtocart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F9E4D9"
+            android:backgroundTint="#623A2C"
+            android:onClick="addtocart"
+            android:text="Add to cart"
+            android:layout_marginTop="248dp"
+            android:layout_marginLeft="224dp"
+            tools:ignore="DuplicateIds" />
+    </RelativeLayout>
+    //clip
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/clip"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/clip"/>
+        <TextView
+            android:id="@+id/producttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Brown Matte Hair Clips"
+            android:layout_marginTop="216dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <TextView
+            android:id="@+id/productprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: 25.50USD"
+            android:layout_marginTop="248dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <Button
+            android:id="@+id/addtocart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F9E4D9"
+            android:backgroundTint="#623A2C"
+            android:onClick="addtocart"
+            android:text="Add to cart"
+            android:layout_marginTop="248dp"
+            android:layout_marginLeft="224dp"
+            tools:ignore="DuplicateIds" />
+    </RelativeLayout>
+
+    //hairclips
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/hairclips"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/hairclips"/>
+        <TextView
+            android:id="@+id/producttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hair Clips "
+            android:layout_marginTop="216dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <TextView
+            android:id="@+id/productprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: 5.00USD"
+            android:layout_marginTop="248dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <Button
+            android:id="@+id/addtocart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F9E4D9"
+            android:backgroundTint="#623A2C"
+            android:onClick="addtocart"
+            android:text="Add to cart"
+            android:layout_marginTop="248dp"
+            android:layout_marginLeft="224dp"
+            tools:ignore="DuplicateIds" />
+    </RelativeLayout>
+    //flower hair claw
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/flowerhairclaw"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/flowerhairclaw"/>
+        <TextView
+            android:id="@+id/producttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Flower Hair Claw "
+            android:layout_marginTop="216dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <TextView
+            android:id="@+id/productprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: 10.00USD"
+            android:layout_marginTop="248dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <Button
+            android:id="@+id/addtocart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F9E4D9"
+            android:backgroundTint="#623A2C"
+            android:onClick="addtocart"
+            android:text="Add to cart"
+            android:layout_marginTop="248dp"
+            android:layout_marginLeft="224dp"
+            tools:ignore="DuplicateIds" />
+    </RelativeLayout>
+    //Fall Bags
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/fallbags"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/fall_bags"/>
+        <TextView
+            android:id="@+id/producttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fall Bags"
+            android:layout_marginTop="216dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <TextView
+            android:id="@+id/productprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: 30.50USD"
+            android:layout_marginTop="248dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <Button
+            android:id="@+id/addtocart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F9E4D9"
+            android:backgroundTint="#623A2C"
+            android:onClick="addtocart"
+            android:text="Add to cart"
+            android:layout_marginTop="248dp"
+            android:layout_marginLeft="224dp"
+            tools:ignore="DuplicateIds" />
+    </RelativeLayout>
+    //birdin bag
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/birdinbag"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/birdinbag"/>
+        <TextView
+            android:id="@+id/producttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Birdin Bag"
+            android:layout_marginTop="216dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <TextView
+            android:id="@+id/productprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: 40.00USD"
+            android:layout_marginTop="248dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <Button
+            android:id="@+id/addtocart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F9E4D9"
+            android:backgroundTint="#623A2C"
+            android:onClick="addtocart"
+            android:text="Add to cart"
+            android:layout_marginTop="248dp"
+            android:layout_marginLeft="224dp"
+            tools:ignore="DuplicateIds" />
+    </RelativeLayout>
+    //commuter handbag
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/commuterhadbag"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/commuterhandbag"/>
+        <TextView
+            android:id="@+id/producttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Commuter HandBag"
+            android:layout_marginTop="216dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <TextView
+            android:id="@+id/productprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: 40.00USD"
+            android:layout_marginTop="248dp"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#623A2C"
+            tools:ignore="DuplicateIds" />
+        <Button
+            android:id="@+id/addtocart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F9E4D9"
+            android:backgroundTint="#623A2C"
+            android:onClick="addtocart"
+            android:text="Add to cart"
+            android:layout_marginTop="248dp"
+            android:layout_marginLeft="224dp"
+            tools:ignore="DuplicateIds" />
+    </RelativeLayout>
+
+</LinearLayout>
+</ScrollView>
