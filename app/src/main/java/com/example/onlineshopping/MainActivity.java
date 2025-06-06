@@ -5,11 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void Login(View view){
         Toast.makeText(getApplicationContext(), "Profile Clicked", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(getApplicationContext(),Login.class);
+        Intent intent = new Intent(getApplicationContext(), Register.class);
         startActivity(intent);
     }
 }

@@ -44,14 +44,7 @@
             android:textSize="24sp"
             android:textColor="#623A2C"
             android:layout_marginTop="260dp"></TextView>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="260dp"
-            android:layout_marginLeft="260dp"
-            android:backgroundTint="#623A2C"
-            android:hint="Add to cart"
-            android:textColorHint="@color/white"/>
+
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"

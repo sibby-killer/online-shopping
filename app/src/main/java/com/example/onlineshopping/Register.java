@@ -7,13 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-public class Login extends AppCompatActivity {
+public class Register extends AppCompatActivity {
      EditText fisrtsname, lastname, email, phonenumber, country, address;
      Button cancel, submit;
     String strfirstname, strlastname, stremail, strphonenumber,strcountry,straddress;
@@ -22,7 +18,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
        fisrtsname = findViewById(R.id.firstname);
        lastname =findViewById(R.id.lastname);
        email =findViewById(R.id.email);
