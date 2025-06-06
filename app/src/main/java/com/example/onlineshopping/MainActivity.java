@@ -19,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Profile Clicked", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class); // Change Register to LoginActivity
         startActivity(intent);
+    }
 
-// ...existing code...
+    public void signin(View view){
+        startActivity(new Intent(this, Register.class));
     }
 }

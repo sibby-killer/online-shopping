@@ -18,7 +18,7 @@ public class Shopping extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shopping2);
+        setContentView(R.layout.activity_shopping);
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -45,7 +45,7 @@ public class Shopping extends AppCompatActivity {
         if (mAuth.getCurrentUser() == null) {
             // User not signed in, redirect to login
             Toast.makeText(this, "Please sign in to add items to cart", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, Login.class));
+            startActivity(new Intent(this, LoginActivity.class));
             return;
         }
 
