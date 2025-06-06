@@ -23,65 +23,81 @@ public class Shopping extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        // Set click listeners for all "Add to Cart" buttons
         setupAddToCartButtons();
     }
 
     private void setupAddToCartButtons() {
-        // Find all buttons and set their click listeners
-        Button[] addToCartButtons = new Button[] {
-            findViewById(R.id.addtocart),
-            // Add other button IDs here
+        // Array of all add-to-cart button IDs
+        int[] buttonIds = {
+                R.id.addtocart1,
+                R.id.addtocart2,
+                R.id.addtocart3,
+                R.id.addtocart4,
+                R.id.addtocart5,
+                R.id.addtocart6,
+                R.id.addtocart7,
+                R.id.addtocart8,
+                R.id.addtocart9
         };
 
-        for (Button button : addToCartButtons) {
+        for (int i = 0; i < buttonIds.length; i++) {
+            Button button = findViewById(buttonIds[i]);
+            int productIndex = i + 1; // producttitle1, productprice1, etc.
             if (button != null) {
-                button.setOnClickListener(v -> handleAddToCart(v));
+                button.setOnClickListener(v -> handleAddToCart(productIndex));
             }
         }
     }
 
-    public void handleAddToCart(View view) {
+    private void handleAddToCart(int productIndex) {
         if (mAuth.getCurrentUser() == null) {
-            // User not signed in, redirect to login
             Toast.makeText(this, "Please sign in to add items to cart", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, LoginActivity.class));
             return;
         }
 
-        // Get the product details based on the clicked button
-        View productView = (View) view.getParent();
-        String productName = ((android.widget.TextView) productView.findViewById(R.id.producttitle)).getText().toString();
-        String priceText = ((android.widget.TextView) productView.findViewById(R.id.productprice)).getText().toString();
-        double priceUSD = extractPrice(priceText);
+        // Dynamically get the product title and price IDs
+        String titleId = "producttitle" + productIndex;
+        String priceId = "productprice" + productIndex;
 
-        addItemToCart(productName, priceUSD);
+        int resTitleId = getResources().getIdentifier(titleId, "id", getPackageName());
+        int resPriceId = getResources().getIdentifier(priceId, "id", getPackageName());
+
+        String productName = ((android.widget.TextView) findViewById(resTitleId)).getText().toString();
+        String priceText = ((android.widget.TextView) findViewById(resPriceId)).getText().toString();
+        double priceKSH = extractPrice(priceText);
+
+        addItemToCart(productName, priceKSH);
     }
 
     private double extractPrice(String priceText) {
-        // Extract price value from "Price: XX.XX USD" format
+        // Extract price value from "Price: XXXX KSH"
         try {
-            return Double.parseDouble(priceText.split("USD")[0].split(":")[1].trim());
+            String[] parts = priceText.split(":");
+            if (parts.length > 1) {
+                return Double.parseDouble(parts[1].replace("KSH", "").replace("ksh", "").replace(" ", "").trim());
+            }
         } catch (Exception e) {
-            return 0.0;
+            // ignore
         }
+        return 0.0;
     }
 
-    private void addItemToCart(String productName, double priceUSD) {
+    private void addItemToCart(String productName, double priceKSH) {
         String userId = mAuth.getCurrentUser().getUid();
-        CartItem cartItem = new CartItem(productName, productName, priceUSD, 1);
+        CartItem cartItem = new CartItem(productName, productName, priceKSH, 1);
 
         db.collection("users")
-            .document(userId)
-            .collection("cart")
-            .document(productName)
-            .set(cartItem)
-            .addOnSuccessListener(aVoid -> {
-                Toast.makeText(this, "Added to cart", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, cart.class));
-            })
-            .addOnFailureListener(e -> {
-                Toast.makeText(this, "Failed to add to cart", Toast.LENGTH_SHORT).show();
-            });
+                .document(userId)
+                .collection("cart")
+                .document(productName)
+                .set(cartItem)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(this, "Added to cart", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(this, cart.class));
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Failed to add to cart", Toast.LENGTH_SHORT).show();
+                });
     }
 }
