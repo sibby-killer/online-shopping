@@ -68,4 +68,38 @@
             android:textColor="#F9E4D9"
             android:textSize="24sp" />
     </LinearLayout>
+
+    <!-- ...existing code... -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not registered? "
+            android:textColor="#623A2C"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/signUpBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#623A2C"
+            android:text="Sign Up Here"
+            android:textColor="#F9E4D9"
+            android:textSize="16sp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"/>
+    </LinearLayout>
+    <!-- ...existing code... -->
 </LinearLayout>

@@ -14,9 +14,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+    // ...existing code...
     public void Login(View view){
         Toast.makeText(getApplicationContext(), "Profile Clicked", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(getApplicationContext(), Register.class);
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class); // Change Register to LoginActivity
         startActivity(intent);
+
+// ...existing code...
     }
 }

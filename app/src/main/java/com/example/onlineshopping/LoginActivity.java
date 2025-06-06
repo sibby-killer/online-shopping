@@ -10,9 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+// ...hapa ndio kuna click listener to open the log in and registration activity...
 public class LoginActivity extends AppCompatActivity {
     EditText email, password;
-    Button loginBtn;
+    Button loginBtn, signUpBtn; // Add signUpBtn here
     FirebaseAuth mAuth;
 
     @Override
@@ -23,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         loginBtn = findViewById(R.id.loginBtn);
+        signUpBtn = findViewById(R.id.signUpBtn);
         mAuth = FirebaseAuth.getInstance();
 
         loginBtn.setOnClickListener(v -> {
@@ -37,13 +39,18 @@ public class LoginActivity extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(emailStr, passwordStr)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Register Successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show(); // Fix message
                             startActivity(new Intent(getApplicationContext(), Shopping.class));
                             finish();
                         } else {
-                            Toast.makeText(getApplicationContext(), "Register Failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Login Failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show(); // Fix message
                         }
                     });
         });
+
+        signUpBtn.setOnClickListener(v -> { // Add this block
+            startActivity(new Intent(LoginActivity.this, Register.class));
+        });
     }
 }
+// ...hapa ndio kuna click listener to open the log in and registration activity...
