@@ -1,5 +1,6 @@
 package com.example.onlineshopping;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,7 +16,7 @@ public class cart extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
-    private Button submitOrder;
+    private Button submitOrder, orderMore;
     private TextView cartTitle;
 
     @Override
@@ -25,6 +26,7 @@ public class cart extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.cartrecycleview);
         submitOrder = findViewById(R.id.buttonsubmit);
+        orderMore = findViewById(R.id.buttonOrderMore);
         cartTitle = findViewById(R.id.carttitle);
 
         db = FirebaseFirestore.getInstance();
@@ -33,6 +35,11 @@ public class cart extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         loadCartItems();
+
+        orderMore.setOnClickListener(v -> {
+            startActivity(new Intent(this, Shopping.class));
+            finish();
+        });
     }
 
     private void loadCartItems() {
@@ -40,17 +47,17 @@ public class cart extends AppCompatActivity {
 
         String userId = mAuth.getCurrentUser().getUid();
         db.collection("users")
-            .document(userId)
-            .collection("cart")
-            .get()
-            .addOnSuccessListener(queryDocumentSnapshots -> {
-                List<CartItem> cartItems = new ArrayList<>();
-                queryDocumentSnapshots.forEach(doc -> {
-                    CartItem item = doc.toObject(CartItem.class);
-                    cartItems.add(item);
+                .document(userId)
+                .collection("cart")
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    List<CartItem> cartItems = new ArrayList<>();
+                    queryDocumentSnapshots.forEach(doc -> {
+                        CartItem item = doc.toObject(CartItem.class);
+                        cartItems.add(item);
+                    });
+                    updateCartDisplay(cartItems);
                 });
-                updateCartDisplay(cartItems);
-            });
     }
 
     private void updateCartDisplay(List<CartItem> items) {
@@ -59,6 +66,7 @@ public class cart extends AppCompatActivity {
             total += item.getPriceKES() * item.getQuantity();
         }
         cartTitle.setText(String.format("Cart Total: KES %.2f", total));
-        // Here you would set up your RecyclerView adapter
+        CartAdapter adapter = new CartAdapter(items);
+        recyclerView.setAdapter(adapter);
     }
 }

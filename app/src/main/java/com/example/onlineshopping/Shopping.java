@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +17,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class Shopping extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
+    private RelativeLayout cartIconContainer;
+    private ImageView cartIcon;
+    private TextView cartBadge;
+    private int cartCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +30,19 @@ public class Shopping extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
+        cartIconContainer = findViewById(R.id.cartIconContainer);
+        cartIcon = findViewById(R.id.cartIcon);
+        cartBadge = findViewById(R.id.cartBadge);
+        cartIconContainer.setVisibility(View.GONE);
+
+        cartIcon.setOnClickListener(v -> {
+            startActivity(new Intent(this, cart.class));
+        });
+
         setupAddToCartButtons();
     }
 
     private void setupAddToCartButtons() {
-        // Array of all add-to-cart button IDs
         int[] buttonIds = {
                 R.id.addtocart1,
                 R.id.addtocart2,
@@ -42,7 +57,7 @@ public class Shopping extends AppCompatActivity {
 
         for (int i = 0; i < buttonIds.length; i++) {
             Button button = findViewById(buttonIds[i]);
-            int productIndex = i + 1; // producttitle1, productprice1, etc.
+            int productIndex = i + 1;
             if (button != null) {
                 button.setOnClickListener(v -> handleAddToCart(productIndex));
             }
@@ -56,15 +71,14 @@ public class Shopping extends AppCompatActivity {
             return;
         }
 
-        // Dynamically get the product title and price IDs
         String titleId = "producttitle" + productIndex;
         String priceId = "productprice" + productIndex;
 
         int resTitleId = getResources().getIdentifier(titleId, "id", getPackageName());
         int resPriceId = getResources().getIdentifier(priceId, "id", getPackageName());
 
-        String productName = ((android.widget.TextView) findViewById(resTitleId)).getText().toString();
-        String priceText = ((android.widget.TextView) findViewById(resPriceId)).getText().toString();
+        String productName = ((TextView) findViewById(resTitleId)).getText().toString();
+        String priceText = ((TextView) findViewById(resPriceId)).getText().toString();
         double priceKSH = extractPrice(priceText);
 
         addItemToCart(productName, priceKSH);
@@ -93,11 +107,42 @@ public class Shopping extends AppCompatActivity {
                 .document(productName)
                 .set(cartItem)
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(this, "Added to cart", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(this, cart.class));
+                    cartCount++;
+                    cartBadge.setText(String.valueOf(cartCount));
+                    cartIconContainer.setVisibility(View.VISIBLE);
+                    Toast.makeText(this, "Added successfully", Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Failed to add to cart", Toast.LENGTH_SHORT).show();
+                });
+    }
+
+    // Optionally, add a method to update the cart count from Firestore on resume
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateCartCount();
+    }
+
+    private void updateCartCount() {
+        if (mAuth.getCurrentUser() == null) {
+            cartIconContainer.setVisibility(View.GONE);
+            return;
+        }
+        String userId = mAuth.getCurrentUser().getUid();
+        db.collection("users")
+                .document(userId)
+                .collection("cart")
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    int count = queryDocumentSnapshots.size();
+                    cartCount = count;
+                    if (count > 0) {
+                        cartBadge.setText(String.valueOf(count));
+                        cartIconContainer.setVisibility(View.VISIBLE);
+                    } else {
+                        cartIconContainer.setVisibility(View.GONE);
+                    }
                 });
     }
 }

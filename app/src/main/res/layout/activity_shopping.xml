@@ -26,6 +26,39 @@
                 android:textColor="#623A2C"
                 android:fontFamily="serif"
                 android:textStyle="italic"/>
+
+            <!-- Add this inside your LinearLayout, after the welcome message -->
+            <RelativeLayout
+                android:id="@+id/cartIconContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:visibility="gone"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/cartIcon"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/trolle"
+                    android:contentDescription="Cart"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <TextView
+                    android:id="@+id/cartBadge"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignEnd="@id/cartIcon"
+                    android:layout_alignTop="@id/cartIcon"
+                    android:background="@drawable/badge_background"
+                    android:textColor="#FFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:text="0"
+                    android:visibility="visible"/>
+            </RelativeLayout>
         </LinearLayout>
 
         <!-- Rhode Lipgloss -->

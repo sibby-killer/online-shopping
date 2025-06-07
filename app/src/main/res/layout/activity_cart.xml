@@ -37,4 +37,12 @@
         android:backgroundTint="#623A2C"
         android:textColor="#F9E4D9"/>
 
+    <Button
+        android:id="@+id/buttonOrderMore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order More"
+        android:backgroundTint="#623A2C"
+        android:textColor="#F9E4D9"/>
+
 </LinearLayout>
